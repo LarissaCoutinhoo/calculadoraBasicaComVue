@@ -6,42 +6,48 @@
     <title>Calculadora</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="titulo">Calculadora <br> Online</div>
     <div id="app">
-        <div class="Calculadora">
+        <div class="Calculadora" @keydown="teclado">
             <div class="display">
-                {{ display }}
+                {{ expressao }}
             </div>
             <div class="Linha">
-                <button class="operador" @click="">C</button>
+                <button class="operador" @click="limpar()">C</button>
             </div>
             <div class="Linha">
-                <button @click="">7</button>
-                <button @click="">8</button>
-                <button @click="">9</button>
-                <button class="operador" @click="">/</button>
+                <button @click="numero(7)">7</button>
+                <button @click="numero(8)">8</button>
+                <button @click="numero(9)">9</button>
+                <button class="operador" @click="operacao('/')">/</button>
             </div>
             <div class="Linha">
-                <button @click="">4</button>
-                <button @click="">5</button>
-                <button @click="">6</button>
-                <button class="operador" @click="">x</button>
+                <button @click="numero(4)">4</button>
+                <button @click="numero(5)">5</button>
+                <button @click="numero(6)">6</button>
+                <button class="operador" @click="operacao('*')">x</button>
             </div>
             <div class="Linha">
-                <button @click="">1</button>
-                <button @click="">2</button>
-                <button @click="">3</button>
-                <button class="operador" @click="">-</button>
+                <button @click="numero(1)">1</button>
+                <button @click="numero(2)">2</button>
+                <button @click="numero(3)">3</button>
+                <button class="operador" @click="operacao('-')">-</button>
             </div>
             <div class="Linha">
-                <button class="decimal" @click="">.</button>
-                <button @click="">0</button>
-                <button class="igual" @click="">=</button>
-                <button class="operador" @click="">+</button>
+                <button class="decimal" @click="decimall()">.</button>
+                <button @click="adicionarNumero(0)">0</button>
+                <button class="igual" @click="calcular()">=</button>
+                <button class="operador" @click="operacao('+')">+</button>
             </div>
         </div>
+        <div class="assinatura">ass:larissacoutinho</div>
     </div>
 </body>
 </html>
+
 <script  src="index.js"></script>
